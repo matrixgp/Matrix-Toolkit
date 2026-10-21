@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup><Compile Include="../MatrixToolkit/NetworkTools.cs" Link="NetworkTools.cs"/></ItemGroup>
+  <ItemGroup><Compile Include="../MatrixToolkit/NetworkScanner.cs" Link="NetworkScanner.cs"/></ItemGroup>
+</Project>
