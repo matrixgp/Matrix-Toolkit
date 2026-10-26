@@ -100,6 +100,7 @@ public sealed record ScanHost(uint Address, bool PingResponded, int[] Ports, boo
     public string Ip => IPv4Range.ToAddress(Address).ToString();
     public string Availability => PingResponded ? "Odpovídá na ping" : "Odpovídá na TCP";
     public string OpenPorts => Ports.Length == 0 ? "Žádné ze zadaných" : string.Join(", ", Ports);
+    public string? HttpUrl => Ports.Contains(80) ? $"http://{Ip}/" : null;
 }
 
 public sealed record ScanProgress(int Completed, int Total, ScanHost? Host = null);

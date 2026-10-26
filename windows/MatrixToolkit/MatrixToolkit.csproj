@@ -8,5 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>MatrixToolkit</AssemblyName>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets/MatrixToolkit.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Assets/MatrixToolkit.ico"/>
+  </ItemGroup>
 </Project>

@@ -1,4 +1,6 @@
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -178,6 +180,20 @@ public partial class MainWindow : Window
     }
 
     private void CancelClicked(object sender, RoutedEventArgs e) => operation?.Cancel();
+
+    private void OpenDeviceWebClicked(object sender, RoutedEventArgs e)
+    {
+        if (sender is not Button { DataContext: ScanHost host } || host.HttpUrl is not { } url) return;
+        try
+        {
+            Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
+        }
+        catch (Exception ex) when (ex is Win32Exception or InvalidOperationException)
+        {
+            MessageBox.Show(this, $"Web se nepodařilo otevřít ve výchozím prohlížeči.\n\nAdresu můžete otevřít ručně:\n{url}",
+                "Otevření webu", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+    }
     private void TargetKeyDown(object sender, KeyEventArgs e)
     {
         if (e.Key == Key.Enter && operation is null) RunClicked(sender, e);

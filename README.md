@@ -1,6 +1,8 @@
 # Matrix Toolkit
 
-Nativní desktopová aplikace pro Windows s českým grafickým rozhraním. Funguje bez instalace Pythonu nebo .NET. Aktuální verze: **Build 002**.
+<img src="windows/MatrixToolkit/Assets/MatrixToolkit.png" width="96" alt="Matrix Toolkit icon">
+
+Nativní desktopová aplikace pro Windows s českým grafickým rozhraním. Funguje bez instalace Pythonu nebo .NET. Aktuální verze: **Build 004**.
 
 ## Funkce
 
@@ -14,9 +16,15 @@ Nativní desktopová aplikace pro Windows s českým grafickým rozhraním. Fung
 
 Karty používají Windows ikony a jemné barevné akcenty. Číslo buildu je zobrazené v aplikaci a v názvech distribučních balíčků.
 
+## Novinky v Build 004
+
+- Vlastní ikona aplikace v EXE, hlavním okně a hlavním panelu Windows.
+- Tlačítko **Otevřít web** u zařízení s nalezeným otevřeným portem 80; otevírá `http://IP-adresa/` ve výchozím prohlížeči.
+- [English release notes](docs/releases/build-004.md).
+
 ## Spuštění
 
-Ve vydání Build 002 stáhněte `MatrixToolkit-Build-002-win-x64.zip`, rozbalte jej a spusťte `MatrixToolkit.exe`. Cílový systém: Windows 11 x64.
+Ve vydání Build 004 stáhněte `MatrixToolkit-Build-004-win-x64.zip`, rozbalte jej a spusťte `MatrixToolkit.exe`. Cílový systém: Windows 11 x64.
 
 ## Vývoj
 

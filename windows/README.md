@@ -1,10 +1,12 @@
-# Matrix Toolkit — Build 002
+# Matrix Toolkit — Build 004
 
 Samostatná aplikace v C# / WPF s českým grafickým rozhraním. Publikovaný balíček obsahuje .NET runtime: uživatel neinstaluje Python ani .NET. Aplikace běží bez administrátorských oprávnění. Cílová platforma: Windows 11 x64; sestavení je možné také pro Windows ARM64.
 
+Aplikace má vlastní ikonu se zeleným monogramem M, vloženou do EXE a hlavního okna. Zdrojová ikona je v `MatrixToolkit/Assets/MatrixToolkit.svg`; soubor ICO obsahuje velikosti 16 až 256 px.
+
 ## Spuštění
 
-Rozbalte `MatrixToolkit-Build-002-win-x64.zip` do vlastní složky a spusťte `MatrixToolkit.exe`. Aktuální build je v titulku a v levém dolním rohu aplikace. Nástroje mají vlastní Windows ikony a tlumené barevné akcenty při zachování společného vzhledu.
+Rozbalte `MatrixToolkit-Build-004-win-x64.zip` do vlastní složky a spusťte `MatrixToolkit.exe`. Aktuální build je v titulku a v levém dolním rohu aplikace. Nástroje mají vlastní Windows ikony a tlumené barevné akcenty při zachování společného vzhledu.
 
 ## Průzkum lokální sítě
 
@@ -17,6 +19,8 @@ Rozbalte `MatrixToolkit-Build-002-win-x64.zip` do vlastní složky a spusťte `M
 Průzkum ověřuje TCP na všech adresách i tehdy, když zařízení blokuje ICMP ping. Za odpověď TCP se považuje úspěšné připojení nebo aktivní odmítnutí spojení. Zobrazení zařízení tedy neznamená, že některý z jeho zadaných portů musí být otevřený. Firewall může odpovědi blokovat nebo generovat; bez odpovědi neznamená vypnuté zařízení. Jde o test dostupnosti a TCP připojení, ne rozpoznávání skutečně běžící služby. UDP tato verze neověřuje.
 
 Podporované adresy: privátní IPv4 `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`, link-local `169.254.0.0/16` a loopback `127.0.0.0/8`. Pro přístup do jiného místního segmentu musí existovat síťová cesta. Jeden průzkum může obsahovat nejvýše 4096 adres, 1024 různých portů a 262144 kombinací adres a portů. Používá nejvýše 64 souběžných TCP spojení. Celý průzkum nemá původní třicetisekundový limit ostatních nástrojů.
+
+U zařízení s nalezeným otevřeným TCP portem **80** se zobrazí tlačítko **Otevřít web**. Kliknutí otevře `http://IP-adresa/` ve výchozím prohlížeči. Web se neotevírá automaticky a tlačítko se nezobrazí, pokud port 80 nebyl ověřen jako otevřený.
 
 Výsledky lze kopírovat nebo uložit. U průzkumu je k dispozici TXT přehled a CSV tabulka se středníky pro Excel. Částečné výsledky jsou označené v obou formátech; jejich seznam portů nemusí být úplný.
 
@@ -43,12 +47,12 @@ Pro vývoj je potřeba .NET 10 SDK. Z PowerShellu ve složce `windows`:
 ./publish.ps1 -Runtime win-arm64
 ```
 
-Build 002 vytvoří `artifacts/Build-002/win-x64/MatrixToolkit.exe` a `artifacts/MatrixToolkit-Build-002-win-x64.zip`. Aplikace používá samorozbalovací balíček .NET; při prvním spuštění rozbalí nativní knihovny do uživatelské dočasné složky. Binární soubor není digitálně podepsaný.
+Build 004 vytvoří `artifacts/Build-004/win-x64/MatrixToolkit.exe` a `artifacts/MatrixToolkit-Build-004-win-x64.zip`. Aplikace používá samorozbalovací balíček .NET; při prvním spuštění rozbalí nativní knihovny do uživatelské dočasné složky. Binární soubor není digitálně podepsaný.
 
 Na Linuxu lze vytvořit Windows balíček s Windows targetingem:
 
 ```sh
-dotnet publish MatrixToolkit/MatrixToolkit.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None -p:DebugSymbols=false -o artifacts/Build-002/win-x64
+dotnet publish MatrixToolkit/MatrixToolkit.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None -p:DebugSymbols=false -o artifacts/Build-004/win-x64
 ```
 
 ## Ověření
